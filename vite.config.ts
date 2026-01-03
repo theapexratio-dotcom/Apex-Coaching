@@ -17,6 +17,10 @@ export default defineConfig({
       }
     }
   },
+  define: {
+    // Shims process.env for the browser to satisfy the Gemini API requirements
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+  },
   server: {
     port: 3000,
     host: true

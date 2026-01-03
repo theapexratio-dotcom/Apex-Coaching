@@ -25,6 +25,7 @@ const App: React.FC = () => {
   });
 
   const handleLogin = (email: string, pass: string) => {
+    // Admin Check
     if (email === 'richardalameen@gmail.com' && pass === 'APEX') {
       const admin: UserProfile = {
         uid: 'admin',
@@ -53,6 +54,7 @@ const App: React.FC = () => {
       return;
     }
     
+    // Default Mock User
     const mockUser: UserProfile = {
       uid: 'user123',
       email,
