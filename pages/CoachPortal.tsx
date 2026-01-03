@@ -29,13 +29,27 @@ export const CoachPortal: React.FC<CoachPortalProps> = ({ onLogout }) => {
 
   const [clients, setClients] = useState<UserProfile[]>([
     { 
-      uid: '1', email: 'alex@exec.com', displayName: 'Alex Johnson', avatarUrl: 'https://images.unsplash.com/photo-1548690312-e3b507d17a47?auto=format&fit=crop&w=400&q=80',
-      sessionBalance: 12, accountCredit: 500, serviceType: 'Face-to-Face', plan: 'Elite Protocol', 
+      uid: '1', 
+      email: 'alex@exec.com', 
+      displayName: 'Alex Johnson', 
+      avatarUrl: 'https://images.unsplash.com/photo-1548690312-e3b507d17a47?auto=format&fit=crop&w=400&q=80',
+      sessionBalance: 12, 
+      accountCredit: 500, 
+      serviceType: 'Face-to-Face', 
+      plan: 'Elite Protocol', 
       bookedDates: [{ id: 'b1', date: '2024-10-25', time: '10:00 AM' }],
       sessionHistory: [{ id: 'h1', date: '2024-10-14', sessionNumber: 1, remainingBalance: 12, notes: 'Intro Session' }],
       progressHistory: [{ month: 'Oct', weight: 85, apexScore: 7.1, rhr: 64 }],
-      photoHistory: [], transformations: [], assignedExercises: [], messages: [], unreadCount: 0, checkInHistory: [],
-      isCoach: false, subscriptionStatus: 'Active', paymentStatus: 'Paid', currentWeight: '83.8',
+      photoHistory: [], 
+      checkInHistory: [],
+      transformations: [], 
+      assignedExercises: [], 
+      messages: [], 
+      unreadCount: 0, 
+      isCoach: false, 
+      subscriptionStatus: 'Active', 
+      paymentStatus: 'Paid', 
+      currentWeight: '83.8',
       dietPlan: { name: 'Metabolic Matrix 1.0', url: '#', assignedDate: '2024-10-01', type: 'Diet' }
     }
   ]);

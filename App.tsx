@@ -12,6 +12,7 @@ import { AcademyPage } from './pages/AcademyPage.tsx';
 import { OnboardingPage } from './pages/OnboardingPage.tsx';
 import { MembershipPage } from './pages/MembershipPage.tsx';
 import { AboutCoach } from './pages/AboutCoach.tsx';
+import { CheckInPage } from './pages/CheckInPage.tsx';
 import { Navbar } from './components/Navbar.tsx';
 import { Footer } from './components/Footer.tsx';
 import { ScrollToTop } from './components/ScrollToTop.tsx';
@@ -24,7 +25,6 @@ const App: React.FC = () => {
   });
 
   const handleLogin = (email: string, pass: string) => {
-    // Admin Check
     if (email === 'richardalameen@gmail.com' && pass === 'APEX') {
       const admin: UserProfile = {
         uid: 'admin',
@@ -38,13 +38,10 @@ const App: React.FC = () => {
         subscriptionStatus: 'Active',
         paymentStatus: 'Paid',
         progressHistory: [],
-        // Added missing property to satisfy UserProfile type
         photoHistory: [],
-        // Fix: Added checkInHistory to satisfy UserProfile type
         checkInHistory: [],
         transformations: [],
         assignedExercises: [],
-        // Added required properties to satisfy UserProfile interface
         messages: [],
         unreadCount: 0
       };
@@ -56,7 +53,6 @@ const App: React.FC = () => {
       return;
     }
     
-    // Default Mock User (Face-to-Face)
     const mockUser: UserProfile = {
       uid: 'user123',
       email,
@@ -64,9 +60,7 @@ const App: React.FC = () => {
       isCoach: false,
       serviceType: 'Face-to-Face',
       sessionBalance: 8,
-      sessionHistory: [
-        { id: '1', date: 'Oct 14, 2024', sessionNumber: 2, remainingBalance: 8, notes: 'Great intensity on squats today.' }
-      ],
+      sessionHistory: [],
       bookedDates: [],
       subscriptionStatus: 'Active',
       paymentStatus: 'Paid',
@@ -74,13 +68,10 @@ const App: React.FC = () => {
       targetWeight: '78',
       mainGoal: 'Elite Performance',
       progressHistory: [],
-      // Added missing property to satisfy UserProfile type
       photoHistory: [],
-      // Fix: Added checkInHistory to satisfy UserProfile type
       checkInHistory: [],
       transformations: [],
       assignedExercises: [],
-      // Added required properties to satisfy UserProfile interface
       messages: [],
       unreadCount: 0
     };
@@ -112,19 +103,11 @@ const App: React.FC = () => {
             <Route path="/" element={<LandingPage />} />
             <Route path="/membership" element={<MembershipPage />} />
             <Route path="/about-coach" element={<AboutCoach />} />
-            <Route 
-              path="/login" 
-              element={user ? (user.isCoach ? <Navigate to="/ coach-portal" /> : <Navigate to="/dashboard" />) : <LoginPage onLogin={handleLogin} />} 
-            />
+            <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route 
-              path="/dashboard" 
-              element={user && !user.isCoach ? <ClientDashboard user={user} onLogout={handleLogout} /> : <Navigate to="/login" />} 
-            />
-            <Route 
-              path="/coach-portal" 
-              element={user && user.isCoach ? <CoachPortal onLogout={handleLogout} /> : <Navigate to="/login" />} 
-            />
+            <Route path="/dashboard" element={user && !user.isCoach ? <ClientDashboard user={user} onLogout={handleLogout} /> : <Navigate to="/login" />} />
+            <Route path="/check-in" element={user && !user.isCoach ? <CheckInPage user={user} /> : <Navigate to="/login" />} />
+            <Route path="/coach-portal" element={user && user.isCoach ? <CoachPortal onLogout={handleLogout} /> : <Navigate to="/login" />} />
             <Route path="/library" element={<LibraryPage />} />
             <Route path="/transformations" element={<TransformationsPage />} />
             <Route path="/academy" element={<AcademyPage />} />
@@ -132,7 +115,6 @@ const App: React.FC = () => {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </main>
-
         {!isCoachPortal && <Footer />}
       </div>
     </Router>
