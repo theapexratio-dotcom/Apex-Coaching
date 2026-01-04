@@ -1,88 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apex Ratio Coaching | Team Al-ameen</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --apex-bg: #0a0a0a;
-            --apex-surface: #141414;
-            --apex-accent: #a855f7; /* High-Energy Neon Purple */
-            --apex-accent-hover: #9333ea;
-            --apex-text-primary: #ffffff;
-            --apex-text-secondary: #a1a1aa;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--apex-bg);
-            color: var(--apex-text-primary);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-        .font-display {
-            font-family: 'Bebas Neue', 'Oswald', sans-serif;
-            text-transform: uppercase;
-        }
-        .glass-panel {
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        
-        .italic-fix, h1, h2, h3, .font-display {
-            overflow: visible !important;
-            padding-right: 0.5em !important; 
-            padding-left: 0.05em !important;  
-            line-height: 1.1 !important;    
-            display: inline-block;           
-            max-width: 100%;
-        }
-
-        .heading-safe-container {
-            overflow: visible !important;
-            padding: 0.5rem 0;
-            display: block;
-        }
-
-        .btn-primary {
-            background-color: var(--apex-accent);
-            color: #ffffff;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border-bottom: 4px solid rgba(0,0,0,0.2);
-        }
-        .btn-primary:hover {
-            background-color: var(--apex-accent-hover);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 40px -10px rgba(168, 85, 247, 0.4);
-        }
-
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 10px;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 3.8rem !important; }
-            .hero-title { font-size: 4.8rem !important; }
-        }
-    </style>
-
-</head>
-<body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex Ratio Coaching | Team Al-ameen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --apex-bg: #0a0a0a;
+        --apex-surface: #141414;
+        --apex-accent: #a855f7;
+        --apex-accent-hover: #9333ea;
+        --apex-text-primary: #ffffff;
+        --apex-text-secondary: #a1a1aa;
+      }
+      body {
+        background-color: var(--apex-bg);
+        color: var(--apex-text-primary);
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
 </html>
