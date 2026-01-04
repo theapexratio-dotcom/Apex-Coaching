@@ -1,19 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// This looks into your components folder for the original site
+
+// 1. Tell the app where the files are located
 import Hero from './components/Hero'; 
-// This looks for your new page
 import AboutCoach from './AboutCoach'; 
+import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Your original homepage stays exactly here */}
+        {/* 2. Create the web addresses (URLs) for each page */}
         <Route path="/" element={<Hero />} /> 
-        
-        {/* Your new updates are live at this link */}
         <Route path="/about" element={<AboutCoach />} />
+        <Route path="/landing" element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </Router>
   );
