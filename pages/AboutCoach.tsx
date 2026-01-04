@@ -20,7 +20,7 @@ export default function AboutCoach() {
         {/* Parallax Background - Matches your new folder */}
         <div 
           className="absolute inset-0 opacity-20 bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: "url('/public/images/coach-rich-bg.jpg')" }}
+          style={{ backgroundImage: "url('/images/coach-rich-bg.jpg')" }}
         />
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
@@ -30,7 +30,7 @@ export default function AboutCoach() {
             <div className="absolute -inset-4 bg-[#a855f7] rounded-[3rem] blur-2xl opacity-10 group-hover:opacity-30 transition duration-700" />
             <div className="relative overflow-hidden rounded-[3rem] border border-white/10 aspect-[4/5] bg-zinc-900 shadow-2xl">
               <img 
-                src="/public/images/coach-rich0.png" 
+                src="/images/coach-rich0.png" 
                 alt="Coach Richard" 
                 className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition duration-700"
               />
