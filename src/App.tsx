@@ -1,18 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// 1. Import your original homepage component (usually called Landing or Home)
-import Landing from './components/Landing'; 
-// 2. Import your new page
+// This looks into your components folder for the original site
+import Hero from './components/Hero'; 
+// This looks for your new page
 import AboutCoach from './AboutCoach'; 
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* This keeps your ORIGINAL website as the main page */}
-        <Route path="/" element={<Landing />} /> 
+        {/* Your original homepage stays exactly here */}
+        <Route path="/" element={<Hero />} /> 
         
-        {/* This adds your NEW page at the /about link */}
+        {/* Your new updates are live at this link */}
         <Route path="/about" element={<AboutCoach />} />
       </Routes>
     </Router>
