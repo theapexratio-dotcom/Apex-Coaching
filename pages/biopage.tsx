@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowLeft, Award, Users, Target, TrendingUp } from "lucide-react"
 
-export default function BioPage() {
+export default function biopage() {
   return (
     <div className="min-h-screen bg-black relative">
       {/* Background Image with Overlay */}
@@ -123,4 +123,4 @@ export default function BioPage() {
     </div>
   )
 }
-export default Biopage;
+export default biopage;
