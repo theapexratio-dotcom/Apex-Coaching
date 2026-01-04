@@ -9,7 +9,7 @@ export default function BioPage() {
         <div
           className="w-full h-full bg-fixed bg-center bg-cover opacity-20"
           style={{
-            backgroundImage: "url('/images/parallax-background.jpeg')",
+            backgroundImage: "url('/parallax-background.jpeg')",
             backgroundAttachment: "fixed",
           }}
         />
