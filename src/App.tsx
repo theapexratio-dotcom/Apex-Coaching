@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// Importing from your specific folders
-import Hero from './components/Hero'; 
-import AboutCoach from './pages/AboutCoach'; 
+import AboutCoach from './pages/AboutCoach';
+import Biopage from './pages/biopage';
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
@@ -12,11 +11,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Main Homepage */}
-        <Route path="/" element={<Hero />} /> 
-        
-        {/* New Coach Page */}
+        {/* Make AboutCoach the default home page */}
+        <Route path="/" element={<AboutCoach />} />
+
+        {/* About and Bio routes */}
         <Route path="/about" element={<AboutCoach />} />
+        <Route path="/biopage" element={<Biopage />} />
 
         {/* Other Pages */}
         <Route path="/landing" element={<LandingPage />} />
