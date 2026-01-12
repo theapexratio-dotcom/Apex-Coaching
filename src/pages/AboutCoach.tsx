@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
-import { Quote, Target, Shield, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Quote, Target, Shield } from 'lucide-react';
 
 export default function AboutCoach() {
   return (
@@ -25,8 +25,8 @@ export default function AboutCoach() {
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
           
-          {/* Linked Image: Goes to your lowercase biopage */}
-          <Link href="/biopage" className="relative group cursor-pointer">
+          {/* Linked Image: Goes to your biopage (React Router Link) */}
+          <Link to="/biopage" className="relative group cursor-pointer">
             <div className="absolute -inset-4 bg-[#a855f7] rounded-[3rem] blur-2xl opacity-10 group-hover:opacity-30 transition duration-700" />
             <div className="relative overflow-hidden rounded-[3rem] border border-white/10 aspect-[4/5] bg-zinc-900 shadow-2xl">
               <img 
@@ -42,8 +42,23 @@ export default function AboutCoach() {
             <Quote className="text-[#a855f7] w-12 h-12" />
             <h2 className="text-4xl font-bold uppercase tracking-tight">The Mission</h2>
             <p className="text-gray-400 text-lg leading-relaxed">
-              Insert your story here. Use icons like <Target className="inline w-5 h-5 text-[#a855f7] mx-1" /> or <Shield className="inline w-5 h-5 text-[#a855f7] mx-1" /> to highlight your core values.
+              Insert your story here. Use icons like <Target className="inline w-5 h-5 text-[#a855f7] mx-1" /> or <Shield className="inline w-5 h-5 text-[#a855f7] mx-1" /> to highlight your core values, process, and the transformation you deliver for clients.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Three-image row as requested */}
+      <section className="px-6 pt-12 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
+            <img src="/images/coach-rich1.png" alt="Coach Rich 1" className="w-full h-64 object-cover" />
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
+            <img src="/images/coach-rich2.png" alt="Coach Rich 2" className="w-full h-64 object-cover" />
+          </div>
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
+            <img src="/images/coach-rich3.png" alt="Coach Rich 3" className="w-full h-64 object-cover" />
           </div>
         </div>
       </section>

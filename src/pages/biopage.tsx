@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from "next/link";
-import { ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronLeft } from 'lucide-react';
 
 export default function biopage() {
   return (
@@ -15,22 +15,32 @@ export default function biopage() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto pt-20 px-6 pb-20">
-        <Link href="/" className="text-[#E2FF00] flex items-center mb-8 font-bold">
-          <ArrowLeft className="mr-2" /> BACK TO HOME
-        </Link>
+        <div className="flex items-center justify-between mb-8">
+          <Link to="/about" className="text-[#E2FF00] flex items-center font-bold">
+            <ChevronLeft className="mr-2" /> BACK TO ABOUT
+          </Link>
+
+          {/* New Go Back button to About Coach as requested */}
+          <Link to="/" className="bg-[#a855f7] text-white px-4 py-2 rounded-md font-semibold">Home</Link>
+        </div>
 
         <h1 className="text-7xl font-black mb-12 tracking-tighter">COACH RICH</h1>
         
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <img 
-              src="/images/coach-rich1.png" 
+              src="/images/coach-rich.png" 
               className="rounded-2xl border-2 border-white/10 w-full"
               alt="Coach Rich Main"
             />
             <p className="text-xl text-gray-300 leading-relaxed font-semibold">
               High-performance coaching designed for those who demand elite results.
             </p>
+
+            {/* Add an extra Go Back at the bottom of the left column (optional but clear) */}
+            <div className="pt-6">
+              <Link to="/about" className="inline-block bg-transparent border border-white/10 text-white px-4 py-2 rounded-md font-medium">Go Back</Link>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
