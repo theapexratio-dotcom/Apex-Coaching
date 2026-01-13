@@ -14,12 +14,17 @@ function App() {
         <Navbar />
         <main>
           <Routes>
-            {/* This line below makes the Coach page the default Home screen */}
+            {/* Setting AboutCoach as the default landing page */}
             <Route path="/" element={<AboutCoach />} />
+            
+            {/* Other Main Pages */}
             <Route path="/home" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            
+            {/* About Page Aliases - Both links will work now */}
             <Route path="/about" element={<AboutCoach />} />
+            <Route path="/biopage" element={<AboutCoach />} />
           </Routes>
         </main>
       </div>
@@ -28,4 +33,3 @@ function App() {
 }
 
 export default App;
- 
