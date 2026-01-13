@@ -17,10 +17,10 @@ export default function AboutCoach() {
 
       {/* The Story Section */}
       <section className="px-6 py-32 bg-[#0e0e0e] border-y border-white/5 relative overflow-hidden">
-        {/* Parallax Background - Matches your new folder */}
+        {/* FIXED: Background now points to your .png file */}
         <div 
           className="absolute inset-0 opacity-20 bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/coach-rich-bg.jpg')" }}
+          style={{ backgroundImage: "url('/images/coach-rich.png')" }}
         />
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
@@ -48,7 +48,7 @@ export default function AboutCoach() {
         </div>
       </section>
 
-      {/* Three-image row as requested */}
+      {/* Three-image row */}
       <section className="px-6 pt-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
