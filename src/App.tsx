@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import AboutCoach from './pages/AboutCoach';
+import BioPage from './pages/BioPage'; // You must import the BioPage file here
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
@@ -14,17 +15,14 @@ function App() {
         <Navbar />
         <main>
           <Routes>
-            {/* Setting AboutCoach as the default landing page */}
             <Route path="/" element={<AboutCoach />} />
-            
-            {/* Other Main Pages */}
             <Route path="/home" element={<Home />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             
-            {/* About Page Aliases - Both links will work now */}
+            {/* FIX: Now they point to two DIFFERENT pages */}
             <Route path="/about" element={<AboutCoach />} />
-            <Route path="/biopage" element={<AboutCoach />} />
+            <Route path="/biopage" element={<BioPage />} /> 
           </Routes>
         </main>
       </div>
