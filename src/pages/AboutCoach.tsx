@@ -22,7 +22,7 @@ export default function AboutCoach() {
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
           
-          {/* THE FIX: This Link now wraps the image to lead to your BioPage */}
+          {/* THE FIX: Clicking this photo now navigates to /biopage */}
           <Link to="/biopage" className="relative group cursor-pointer block">
             <div className="absolute -inset-4 bg-[#a855f7] rounded-[3rem] blur-2xl opacity-10 group-hover:opacity-30 transition duration-700" />
             <div className="relative overflow-hidden rounded-[3rem] border border-white/10 aspect-[4/5] bg-zinc-900 shadow-2xl">
