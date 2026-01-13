@@ -1,10 +1,11 @@
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  /* THIS LINE IS THE FIX: It tells Vite the images are in the root, not a public folder */
+  publicDir: '.', 
   build: {
     outDir: 'dist',
     sourcemap: false,
@@ -18,7 +19,6 @@ export default defineConfig({
     }
   },
   define: {
-    // Shims process.env for the browser to satisfy the Gemini API requirements
     'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
   },
   server: {
