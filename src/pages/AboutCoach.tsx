@@ -17,17 +17,17 @@ export default function AboutCoach() {
       <section className="px-6 py-32 bg-[#0e0e0e] border-y border-white/5 relative overflow-hidden">
         <div 
           className="absolute inset-0 opacity-20 bg-fixed bg-cover bg-center"
-          style={{ backgroundImage: "url('images/coach-rich.png')" }}
+          /* FIXED: Added leading slash */
+          style={{ backgroundImage: "url('/images/coach-rich.png')" }}
         />
         
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center relative z-10">
-          
-          {/* THE FIX: Clicking this photo now navigates to /biopage */}
           <Link to="/biopage" className="relative group cursor-pointer block">
             <div className="absolute -inset-4 bg-[#a855f7] rounded-[3rem] blur-2xl opacity-10 group-hover:opacity-30 transition duration-700" />
             <div className="relative overflow-hidden rounded-[3rem] border border-white/10 aspect-[4/5] bg-zinc-900 shadow-2xl">
               <img 
-                src="images/coach-rich0.png" 
+                /* FIXED: Added leading slash */
+                src="/images/coach-rich0.png" 
                 alt="Coach Richard" 
                 className="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:brightness-100 transition duration-700"
               />
@@ -46,14 +46,15 @@ export default function AboutCoach() {
 
       <section className="px-6 pt-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* FIXED: Added leading slashes to all three below */}
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
-            <img src="images/coach-rich1.png" alt="Coach Rich 1" className="w-full h-64 object-cover" />
+            <img src="/images/coach-rich1.png" alt="Coach Rich 1" className="w-full h-64 object-cover" />
           </div>
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
-            <img src="images/coach-rich2.png" alt="Coach Rich 2" className="w-full h-64 object-cover" />
+            <img src="/images/coach-rich2.png" alt="Coach Rich 2" className="w-full h-64 object-cover" />
           </div>
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900">
-            <img src="images/coach-rich3.png" alt="Coach Rich 3" className="w-full h-64 object-cover" />
+            <img src="/images/coach-rich3.png" alt="Coach Rich 3" className="w-full h-64 object-cover" />
           </div>
         </div>
       </section>
