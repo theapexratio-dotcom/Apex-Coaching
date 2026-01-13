@@ -7,8 +7,7 @@ export default function BioPage() {
     <div className="min-h-screen bg-black text-white">
       <div className="fixed inset-0 z-0">
         <img 
-          /* FIXED: Added leading slash */
-          src="/images/coach-rich0.png" 
+          src="coach-rich0.png" 
           className="w-full h-full object-cover opacity-30"
           alt="Background"
         />
@@ -27,32 +26,18 @@ export default function BioPage() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <img 
-              /* FIXED: Added leading slash */
-              src="/images/coach-rich.png" 
+              src="coach-rich.png" 
               className="rounded-2xl border-2 border-white/10 w-full"
-              alt="Coach Rich Main"
+              alt="Coach Rich"
             />
             <p className="text-xl text-gray-300 leading-relaxed font-semibold">
-              High-performance coaching designed for those who demand elite results.
+              High-performance coaching.
             </p>
-            <div className="pt-6">
-              <Link to="/about" className="inline-block bg-transparent border border-white/10 text-white px-4 py-2 rounded-md font-medium">Go Back</Link>
-            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            <img 
-              /* FIXED: Added leading slash */
-              src="/images/coach-rich2.png" 
-              className="rounded-2xl border border-white/10 w-full"
-              alt="Transformation 1"
-            />
-            <img 
-              /* FIXED: Added leading slash */
-              src="/images/coach-rich3.png" 
-              className="rounded-2xl border border-white/10 w-full"
-              alt="Transformation 2"
-            />
+            <img src="coach-rich2.png" className="rounded-2xl border border-white/10 w-full" alt="1" />
+            <img src="coach-rich3.png" className="rounded-2xl border border-white/10 w-full" alt="2" />
           </div>
         </div>
       </div>
