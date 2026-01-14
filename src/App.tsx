@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import LandingPage from './components/LandingPage';
+import LandingPage from './pages/LandingPage';
 import AboutCoach from './components/AboutCoach';
-import BioPage from './components/BioPage';
-import MembershipPage from './components/MembershipPage';
-import TransformationsPage from './components/TransformationsPage';
-import LibraryPage from './components/LibraryPage';
-import OnboardingPage from './components/OnboardingPage';
-import LoginPage from './components/LoginPage';
-import SignupPage from './components/SignupPage';
+import BioPage from './pages/biopage';
+import MembershipPage from './pages/MembershipPage';
+import TransformationsPage from './pages/TransformationsPage';
+import LibraryPage from './pages/LibraryPage';
+import OnboardingPage from './pages/OnboardingPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 function App() {
   return (
