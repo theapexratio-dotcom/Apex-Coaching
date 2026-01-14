@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const App = () => {
   // SETTINGS
-  // Set this to 'false' to show your actual website and images
+  // Set showAccessRestricted to 'false' to see the actual website
   const [showAccessRestricted, setShowAccessRestricted] = useState(false);
-  const formspreeLink = "https://formspree.io/f/YOUR_ID_HERE";
+  const formspreeId = "mldevvwa"; // Your Formspree ID
 
   // 1. YOUR ACCESS RESTRICTED SCREEN
   if (showAccessRestricted) {
@@ -35,16 +35,16 @@ const App = () => {
     );
   }
 
-  // 2. THE MAIN WEBSITE WITH YOUR COACH-RICH IMAGES
+  // 2. THE MAIN WEBSITE
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
       {/* Navigation */}
       <nav className="flex justify-between items-center p-6 border-b border-slate-100">
-        <div className="font-black text-2xl tracking-tighter">COACH RICH</div>
+        <div className="font-black text-2xl tracking-tighter uppercase">Coach Rich</div>
         <div className="hidden md:flex space-x-8 font-medium text-sm">
-          <a href="#about" className="hover:text-orange-600 transition">About</a>
-          <a href="#services" className="hover:text-orange-600 transition">Services</a>
-          <a href="#contact" className="hover:text-orange-600 transition">Contact</a>
+          <a href="#about" className="hover:text-blue-600 transition">About</a>
+          <a href="#services" className="hover:text-blue-600 transition">Services</a>
+          <a href="#contact" className="hover:text-blue-600 transition">Contact</a>
         </div>
       </nav>
 
@@ -53,49 +53,61 @@ const App = () => {
         <section className="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-              Empowering Your <span className="text-orange-600">Growth.</span>
+              Level Up Your <span className="text-blue-600">Performance.</span>
             </h2>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Professional coaching and strategic business solutions tailored to your unique goals. Let's build something great together.
+              Tailored coaching strategies designed for professionals who want to dominate their field. 
             </p>
-            <a href="#contact" className="inline-block bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-orange-600 transition-colors shadow-xl">
-              Start Your Journey
+            <a href="#contact" className="inline-block bg-slate-900 text-white px-10 py-4 rounded-full font-bold hover:bg-blue-600 transition-all shadow-xl">
+              Get Started Now
             </a>
           </div>
           
           <div className="relative">
-            {/* IMAGE 1: coach-rich.png */}
-            <div className="rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+            {/* IMAGE 1: Path adjusted for public/images/ */}
+            <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-100">
               <img 
-                src="./coach-rich.png" 
-                alt="Coach Rich Profile" 
+                src="/images/coach-rich.png" 
+                alt="Coach Rich" 
                 className="w-full object-cover"
-                onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/600x700?text=Check+Filename+Case+Sensitivity'; }}
+                onError={(e) => { (e.target as HTMLImageElement).src = 'https://via.placeholder.com/600x700?text=Check+Image+Folder+Name'; }}
               />
             </div>
           </div>
         </section>
 
-        {/* SERVICES SECTION */}
+        {/* SERVICES / GALLERY SECTION */}
         <section id="services" className="bg-slate-50 py-20 px-6">
           <div className="max-w-6xl mx-auto">
-            <h3 className="text-3xl font-bold mb-12 text-center">Core Services</h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* SERVICE 1 */}
-              <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
-                <img 
-                  src="./coach-rich0.png" 
-                  alt="Coaching Session" 
-                  className="w-full h-64 object-cover rounded-xl mb-6"
-                />
-                <h4 className="text-xl font-bold mb-2 px-4">Executive Coaching</h4>
-                <p className="text-slate-600 px-4 pb-4">High-level strategy for leaders looking to scale their impact and efficiency.</p>
+            <h3 className="text-3xl font-bold mb-12">Expertise</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* IMAGE 2: coach-rich0.png */}
+              <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                <img src="/images/coach-rich0.png" alt="Service 1" className="w-full h-48 object-cover" />
+                <div className="p-6">
+                  <h4 className="font-bold text-xl mb-2">Strategy</h4>
+                  <p className="text-slate-600 text-sm">Precision planning for your business and personal growth.</p>
+                </div>
               </div>
-              
-              {/* SERVICE 2 - You can add more coach-rich1.png etc here */}
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-center">
-                <h4 className="text-2xl font-bold mb-4 italic">"Success is not final, failure is not fatal: it is the courage to continue that counts."</h4>
-                <p className="text-slate-500">— Results Driven Approach</p>
+
+              {/* IMAGE 3: coach-rich1.png (Assuming sequential names) */}
+              <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                <img src="/images/coach-rich1.png" alt="Service 2" className="w-full h-48 object-cover" 
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                <div className="p-6">
+                  <h4 className="font-bold text-xl mb-2">Mentorship</h4>
+                  <p className="text-slate-600 text-sm">One-on-one sessions to break through your mental plateaus.</p>
+                </div>
+              </div>
+
+              {/* IMAGE 4: coach-rich2.png */}
+              <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                <img src="/images/coach-rich2.png" alt="Service 3" className="w-full h-48 object-cover" 
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                <div className="p-6">
+                  <h4 className="font-bold text-xl mb-2">Results</h4>
+                  <p className="text-slate-600 text-sm">Data-driven approaches to ensure you hit your KPIs.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -103,35 +115,35 @@ const App = () => {
 
         {/* FORMSPREE CONTACT SECTION */}
         <section id="contact" className="py-24 px-6">
-          <div className="max-w-3xl mx-auto bg-slate-900 rounded-[3rem] p-10 md:p-16 text-white text-center shadow-2xl">
-            <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
-            <p className="text-slate-400 mb-10">Send a message directly to my inbox via Formspree.</p>
+          <div className="max-w-3xl mx-auto bg-slate-900 rounded-[3rem] p-10 text-white text-center">
+            <h2 className="text-4xl font-bold mb-4">Direct Inquiry</h2>
+            <p className="text-slate-400 mb-10">Ready to begin? Send me a message below.</p>
             
-            <form action={formspreeLink} method="POST" className="grid gap-4">
+            <form action={`https://formspree.io/f/${formspreeId}`} method="POST" className="grid gap-4">
               <input 
                 type="email" 
                 name="email" 
                 placeholder="Email Address" 
-                className="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-orange-600 outline-none transition" 
+                className="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 text-white" 
                 required 
               />
               <textarea 
                 name="message" 
-                placeholder="How can I assist you today?" 
+                placeholder="How can I help?" 
                 rows={4} 
-                className="w-full p-4 rounded-2xl bg-slate-800 border border-slate-700 text-white placeholder-slate-500 focus:ring-2 focus:ring-orange-600 outline-none transition" 
+                className="w-full p-4 rounded-xl bg-slate-800 border border-slate-700 text-white" 
                 required
               ></textarea>
-              <button type="submit" className="bg-orange-600 hover:bg-white hover:text-orange-600 text-white font-black py-4 rounded-2xl transition-all duration-300 transform hover:scale-105">
-                SEND MESSAGE NOW
+              <button type="submit" className="bg-blue-600 hover:bg-white hover:text-blue-600 text-white font-bold py-4 rounded-xl transition-all">
+                SEND MESSAGE
               </button>
             </form>
           </div>
         </section>
       </main>
 
-      <footer className="p-10 text-center text-slate-400 text-xs tracking-widest uppercase">
-        © 2026 COACH RICH | ALL RIGHTS RESERVED
+      <footer className="p-10 text-center text-slate-400 text-xs tracking-widest uppercase border-t border-slate-100">
+        © 2026 COACH RICH | BUILT ON GITHUB
       </footer>
     </div>
   );
