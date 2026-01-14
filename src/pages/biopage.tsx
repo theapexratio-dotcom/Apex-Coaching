@@ -7,7 +7,7 @@ export default function BioPage() {
     <div className="min-h-screen bg-black text-white">
       <div className="fixed inset-0 z-0">
         <img 
-          src="coach-rich0.png" 
+          src="/images/coach-rich0.png" 
           className="w-full h-full object-cover opacity-30"
           alt="Background"
         />
@@ -26,7 +26,7 @@ export default function BioPage() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-6">
             <img 
-              src="coach-rich.png" 
+              src="/images/coach-rich.png" 
               className="rounded-2xl border-2 border-white/10 w-full"
               alt="Coach Rich"
             />
@@ -36,8 +36,8 @@ export default function BioPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            <img src="coach-rich2.png" className="rounded-2xl border border-white/10 w-full" alt="1" />
-            <img src="coach-rich3.png" className="rounded-2xl border border-white/10 w-full" alt="2" />
+            <img src="/images/coach-rich2.png" className="rounded-2xl border border-white/10 w-full" alt="1" />
+            <img src="/images/coach-rich3.png" className="rounded-2xl border border-white/10 w-full" alt="2" />
           </div>
         </div>
       </div>
