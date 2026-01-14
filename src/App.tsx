@@ -1,31 +1,32 @@
 import React from 'react';
-/* Changed BrowserRouter to HashRouter for GitHub Pages compatibility */
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import AboutCoach from './pages/AboutCoach';
-import BioPage from './pages/BioPage'; 
-import Home from './pages/Home';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import './App.css';
+import LandingPage from './components/LandingPage';
+import AboutCoach from './components/AboutCoach';
+import BioPage from './components/BioPage';
+import MembershipPage from './components/MembershipPage';
+import TransformationsPage from './components/TransformationsPage';
+import LibraryPage from './components/LibraryPage';
+import OnboardingPage from './components/OnboardingPage';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="min-h-screen bg-black text-white">
         <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<AboutCoach />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            
-            {/* These routes are now correctly separated */}
-            <Route path="/about" element={<AboutCoach />} />
-            <Route path="/biopage" element={<BioPage />} /> 
-          </Routes>
-        </main>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<AboutCoach />} />
+          <Route path="/biopage" element={<BioPage />} />
+          <Route path="/membership" element={<MembershipPage />} />
+          <Route path="/transformations" element={<TransformationsPage />} />
+          <Route path="/library" element={<LibraryPage />} />
+          <Route path="/onboarding" element={<OnboardingPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+        </Routes>
       </div>
     </Router>
   );
