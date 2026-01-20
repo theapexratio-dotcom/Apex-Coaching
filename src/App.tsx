@@ -1,74 +1,58 @@
 import React, { useState } from 'react';
 
-// --- 1. FULL BIO STORY VIEW ---
-const FullBioPage = ({ onBack }) => (
-  <div className="min-h-screen bg-black text-white p-10 font-sans">
-    <button onClick={onBack} className="text-[#a855f7] uppercase font-bold mb-10 tracking-widest text-xs">← Back to About</button>
-    <h1 className="text-6xl md:text-8xl italic uppercase mb-8 leading-none font-black">
-      The <span className="text-[#a855f7]">Foundation</span>
-    </h1>
-    <div className="bg-zinc-900 p-8 md:p-12 rounded-[2rem] border border-white/10 max-w-4xl">
-      <p className="text-xl mb-6">I specialize in high-performance results for executives.</p>
-      <p className="text-zinc-400 leading-loose">Built on 7 years of experience and 3 years at Ultimate Performance.</p>
-    </div>
-  </div>
-);
-
-// --- 2. ABOUT COACH VIEW ---
-const AboutCoachPage = ({ onBack, onSeeBio }) => (
-  <div className="min-h-screen bg-[#0a0a0a] text-white p-10 font-sans text-center">
-    <button onClick={onBack} className="text-[#a855f7] uppercase font-bold mb-12 tracking-widest text-xs">← Back to Hub</button>
-    <h1 className="text-5xl md:text-7xl italic uppercase mb-20 font-black">Your <span className="text-[#a855f7]">Coach</span></h1>
-    <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center text-left">
-      <div onClick={onSeeBio} className="cursor-pointer group relative">
-        <div className="rounded-[2rem] overflow-hidden border border-white/10 aspect-[4/5] bg-zinc-800 shadow-2xl">
-          <img src="https://i.postimg.cc/N5xFfjPR/coach-rich-main.png" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" alt="Coach" />
+// --- VIEW 1: ABOUT COACH ---
+const AboutCoach = ({ onBack, onSeeBio }) => (
+  <div style={{ backgroundColor: '#0a0a0a', color: 'white', minHeight: '100vh', padding: '40px', fontFamily: 'sans-serif' }}>
+    <button onClick={onBack} style={{ color: '#a855f7', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}>← BACK TO HUB</button>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1 style={{ fontSize: '3rem', textTransform: 'uppercase', fontStyle: 'italic' }}>Get To Know <span style={{ color: '#a855f7' }}>Your Coach</span></h1>
+      <div onClick={onSeeBio} style={{ cursor: 'pointer', marginTop: '40px' }}>
+        <div style={{ border: '1px solid #333', borderRadius: '20px', overflow: 'hidden', maxWidth: '400px', margin: '0 auto' }}>
+          <img src="https://i.postimg.cc/N5xFfjPR/coach-rich-main.png" alt="Coach" style={{ width: '100%', display: 'block' }} />
         </div>
-        <p className="mt-4 text-[#a855f7] text-center uppercase font-black text-[10px] tracking-widest">Click to Read Full Story</p>
-      </div>
-      <div className="space-y-6">
-        <h2 className="text-4xl font-black uppercase italic tracking-tighter">The Mission</h2>
-        <p className="text-zinc-400 text-lg leading-relaxed">Precision-engineered results for the executive schedule. No fluff. Just the foundation.</p>
+        <p style={{ color: '#a855f7', marginTop: '15px', fontWeight: 'bold' }}>CLICK TO READ FULL BIO</p>
       </div>
     </div>
   </div>
 );
 
-// --- 3. THE MAIN HUB ---
+// --- VIEW 2: FULL BIO ---
+const FullBio = ({ onBack }) => (
+  <div style={{ backgroundColor: 'black', color: 'white', minHeight: '100vh', padding: '40px', fontFamily: 'sans-serif' }}>
+    <button onClick={onBack} style={{ color: '#a855f7', background: 'none', border: 'none', cursor: 'pointer', fontWeight: 'bold' }}>← BACK</button>
+    <div style={{ maxWidth: '800px', margin: '50px auto' }}>
+      <h1 style={{ fontSize: '4rem', textTransform: 'uppercase' }}>The <span style={{ color: '#a855f7' }}>Foundation</span></h1>
+      <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#ccc' }}>
+        I specialize in working with high-earning executives and busy professionals who demand the same excellence in their physical health as they do in their careers.
+      </p>
+    </div>
+  </div>
+);
+
+// --- MAIN APP ---
 export default function App() {
   const [view, setView] = useState('hub');
 
-  if (view === 'about') return <AboutCoachPage onBack={() => setView('hub')} onSeeBio={() => setView('bio')} />;
-  if (view === 'bio') return <FullBioPage onBack={() => setView('about')} />;
+  if (view === 'about') return <AboutCoach onBack={() => setView('hub')} onSeeBio={() => setView('bio')} />;
+  if (view === 'bio') return <FullBio onBack={() => setView('about')} />;
 
   return (
-    <div className="min-h-screen bg-white text-black font-sans">
-      <nav className="flex justify-between p-8 max-w-7xl mx-auto border-b border-slate-100">
-        <div className="font-black text-2xl tracking-tighter uppercase">Coach Rich</div>
-        <div className="space-x-8 text-[10px] font-black uppercase tracking-widest pt-2">
-          <button onClick={() => setView('about')} className="hover:text-[#a855f7]">About Coach</button>
-          <a href="#contact" className="hover:text-[#a855f7]">Contact</a>
+    <div style={{ minHeight: '100vh', fontFamily: 'sans-serif', backgroundColor: 'white' }}>
+      <nav style={{ display: 'flex', justifyContent: 'space-between', padding: '30px', maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ fontWeight: '900', fontSize: '1.5rem' }}>COACH RICH</div>
+        <div>
+          <button onClick={() => setView('about')} style={{ background: 'none', border: 'none', fontWeight: 'bold', cursor: 'pointer', textTransform: 'uppercase', fontSize: '12px' }}>About Coach</button>
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <h1 className="text-7xl md:text-9xl font-black italic uppercase leading-[0.85] mb-12 tracking-tighter">
-          The Apex <br/><span className="text-[#a855f7]">Standard.</span>
+      <main style={{ textAlign: 'center', padding: '100px 20px' }}>
+        <h1 style={{ fontSize: '5rem', fontWeight: '900', textTransform: 'uppercase', fontStyle: 'italic', lineHeight: '0.9' }}>
+          THE APEX <br /> <span style={{ color: '#a855f7' }}>STANDARD.</span>
         </h1>
-        <button onClick={() => setView('about')} className="bg-black text-white px-12 py-6 rounded-full font-black uppercase tracking-widest hover:bg-[#a855f7] transition-all shadow-xl">
+        <button onClick={() => setView('about')} style={{ marginTop: '40px', backgroundColor: 'black', color: 'white', padding: '20px 40px', borderRadius: '50px', fontWeight: 'bold', textTransform: 'uppercase', cursor: 'pointer', border: 'none' }}>
           Enter Hub
         </button>
       </main>
-
-      <section id="contact" className="bg-black text-white py-24 px-6 rounded-t-[4rem]">
-        <div className="max-w-md mx-auto text-center">
-          <h2 className="text-4xl font-black italic uppercase mb-10 tracking-tight">Apply Now</h2>
-          <form action="https://formspree.io/f/mldevvwa" method="POST" className="space-y-4">
-            <input name="email" type="email" placeholder="Work Email" className="w-full p-5 rounded-2xl bg-zinc-900 border border-white/10 text-white outline-none focus:border-[#a855f7]" required />
-            <button type="submit" className="w-full bg-[#a855f7] py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Submit Application</button>
-          </form>
-        </div>
-      </section>
     </div>
   );
 }
