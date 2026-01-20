@@ -1,109 +1,115 @@
 import React, { useState } from 'react';
+import { ArrowLeft, Award, Users, Target, TrendingUp, ShieldAlert } from 'lucide-react';
 
-// --- BIOPAGE COMPONENT (This is where your v0 content lives) ---
-const FullBioPage = ({ onBack }) => {
+// --- BIOPAGE COMPONENT ---
+const BioPage = ({ onBack }) => {
   return (
-    <div className="min-h-screen bg-[#050505] text-white p-8 animate-in fade-in duration-500">
-      <button 
-        onClick={onBack}
-        className="mb-10 text-[#a855f7] font-black uppercase tracking-widest flex items-center gap-2"
-      >
-        ← Return to Hub
-      </button>
-
-      {/* PASTE YOUR v0.APP CODE CONTENT BELOW THIS LINE 
-         Everything inside the 'return' of your v0 code goes here
-      */}
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-6xl font-black italic uppercase italic-fix mb-4">
-          Richard <span className="text-[#a855f7]">Al-Ameen</span>
-        </h1>
-        <p className="text-zinc-400 text-lg leading-loose">
-          [Your v0 content will fill this space...]
-        </p>
+    <div className="min-h-screen bg-black relative selection:bg-[#a855f7] selection:text-white">
+      {/* Background Image with Overlay */}
+      <div className="fixed inset-0 z-0">
+        <div
+          className="w-full h-full bg-fixed bg-center bg-cover opacity-20"
+          style={{
+            backgroundImage: "url('https://i.postimg.cc/LhLhwTkd/coach-rich-bio.png')",
+            backgroundAttachment: 'fixed',
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/85 to-black/95"></div>
       </div>
-      {/* PASTE ENDS HERE */}
 
+      <div className="relative z-10 px-6 pt-20 pb-32">
+        {/* Back Button */}
+        <div className="max-w-5xl mx-auto mb-12">
+          <button
+            onClick={onBack}
+            className="inline-flex items-center gap-3 text-white/70 hover:text-[#a855f7] transition-colors group"
+          >
+            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+            <span className="text-sm font-black uppercase tracking-widest">Back to Command Hub</span>
+          </button>
+        </div>
+
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-16">
+            <span className="text-[#a855f7] font-black text-[11px] uppercase tracking-[0.5em] block mb-6">
+              The Foundation
+            </span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl italic uppercase tracking-tighter text-white mb-8 leading-none">
+              Richard <span className="text-[#a855f7] not-italic">Al-Ameen</span>
+            </h1>
+            <p className="text-zinc-400 text-sm uppercase tracking-widest font-black">
+              Executive Transformation Specialist
+            </p>
+          </div>
+
+          <div className="space-y-12 bg-black/40 backdrop-blur-sm rounded-[3rem] p-12 md:p-16 border border-white/10 shadow-2xl">
+            <div className="space-y-6">
+              <p className="text-white font-light leading-loose tracking-wide text-lg">
+                I specialize in working with{' '}
+                <span className="text-[#a855f7] font-semibold">high-earning executives and busy professionals</span> who
+                demand the same excellence in their physical health as they do in their careers.
+              </p>
+              <p className="text-white font-light leading-loose tracking-wide text-lg">
+                I don't just provide a plan; I provide a foundation built on years of experience, massive successes, and
+                the lessons learned from my own losses.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-white/10">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Award className="w-6 h-6 text-[#a855f7]" />
+                  <h3 className="text-2xl uppercase italic text-white">The Experience</h3>
+                </div>
+                <p className="text-zinc-300 font-light text-sm uppercase">7 years experience • 3 years UP specialist</p>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Users className="w-6 h-6 text-[#a855f7]" />
+                  <h3 className="text-2xl uppercase italic text-white">The Client</h3>
+                </div>
+                <p className="text-zinc-300 font-light text-sm uppercase">Hard-working executives / Busy Professionals</p>
+              </div>
+            </div>
+
+            <div className="pt-12 text-center border-t border-white/10">
+              <button 
+                onClick={onBack}
+                className="inline-flex items-center gap-4 px-12 py-6 rounded-[2rem] text-sm bg-[#a855f7] text-white font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all shadow-lg shadow-purple-500/30"
+              >
+                Return to Application
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
+// --- MAIN APP COMPONENT ---
 const App = () => {
+  const [showBio, setShowBio] = useState(false);
   const formspreeId = "mldevvwa"; 
-  const [showAccessRestricted, setShowAccessRestricted] = useState(false);
-  const [showBio, setShowBio] = useState(false); // New switch
 
   const images = {
     mainHero: "https://i.postimg.cc/N5xFfjPR/coach-rich-main.png",
-    largeBio: "https://i.postimg.cc/LhLhwTkd/coach-rich-bio.png",
     transform1: "https://i.postimg.cc/cv4HKGVF/transformation-1.png",
     transform2: "https://i.postimg.cc/cv4HKGVD/transformation-2.png",
     transform3: "https://i.postimg.cc/ZCLnK5Ds/apex-ratio.png"
   };
 
-  // Switch to Bio Page
+  // Switch to Bio Page View
   if (showBio) {
-    return <FullBioPage onBack={() => setShowBio(false)} />;
-  }
-
-  if (showAccessRestricted) {
-    return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-slate-50 font-sans">
-        <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-xl border border-slate-100 text-center">
-          <h1 className="text-3xl font-bold text-slate-900 mb-4">Access Restricted</h1>
-          <button onClick={() => setShowAccessRestricted(false)} className="text-xs text-blue-500 underline">Enter Site Preview</button>
-        </div>
-      </div>
-    );
+    return <BioPage onBack={() => setShowBio(false)} />;
   }
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
+      {/* Navigation */}
       <nav className="flex justify-between items-center p-6 max-w-7xl mx-auto">
-        <div className="font-black text-2xl uppercase tracking-tighter">COACH RICH (V2)</div>
-        <div className="space-x-6 text-xs font-bold uppercase tracking-widest">
-          {/* We changed the link to an onClick button */}
-          <button onClick={() => setShowBio(true)} className="hover:text-purple-600 transition">About Coach</button>
-          <a href="#transformation">Transformation</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-
-      <section className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h1 className="text-6xl font-black mb-6">THE APEX STANDARD.</h1>
-          <p className="text-lg text-slate-600 mb-8">High-performance coaching for elite results.</p>
-          <button onClick={() => setShowBio(true)} className="bg-black text-white px-10 py-4 rounded-full font-bold">
-            Read My Story
-          </button>
-        </div>
-        <div className="rounded-3xl overflow-hidden shadow-2xl">
-          <img src={images.mainHero} alt="Coach Rich" className="w-full" />
-        </div>
-      </section>
-
-      {/* Rest of your existing site... */}
-      <section id="transformation" className="py-20 px-6 max-w-7xl mx-auto text-center">
-         <h2 className="text-4xl font-black mb-16 uppercase italic">The Apex Ratio</h2>
-         <div className="grid md:grid-cols-3 gap-6">
-           <img src={images.transform1} alt="Stage 1" className="rounded-xl h-96 w-full object-cover" />
-           <img src={images.transform2} alt="Stage 2" className="rounded-xl h-96 w-full object-cover" />
-           <img src={images.transform3} alt="Apex" className="rounded-xl h-96 w-full object-cover border-4 border-purple-500" />
-         </div>
-      </section>
-
-      <section id="contact" className="py-20 bg-slate-900 text-white px-6">
-        <div className="max-w-xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Contact Coach Rich</h2>
-          <form action={`https://formspree.io/f/${formspreeId}`} method="POST" className="space-y-4">
-            <input type="email" name="email" placeholder="Email Address" className="w-full p-4 rounded-xl bg-slate-800 border-none" required />
-            <textarea name="message" placeholder="Your Goals" rows={4} className="w-full p-4 rounded-xl bg-slate-800 border-none" required></textarea>
-            <button type="submit" className="w-full bg-purple-600 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-purple-500 transition">Send Message</button>
-          </form>
-        </div>
-      </section>
-    </div>
-  );
-};
-
-export default App;
+        <div className="font-black text-2xl uppercase tracking-tighter">COACH RICH</div>
+        <div className="space-x-6 text-[10px] font-black uppercase tracking-[0.2em]">
+          <button onClick={() => setShowBio(true)} className="hover:text-[#a855f7] transition">About Coach</button>
+          <a href="#transformation" className="hover:text-[#a855f7] transition">Transformation</a>
+          <a href="#contact" className="hover:text-[#a855f7]
