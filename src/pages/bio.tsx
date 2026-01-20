@@ -36,7 +36,7 @@ export default function BioPage() {
             <span className="text-[#a855f7] font-black text-[11px] uppercase tracking-[0.5em] block mb-6">
               The Foundation
             </span>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl italic uppercase tracking-tighter text-white pr-6 mb-8">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl italic uppercase tracking-tighter text-white pr-6 mb-8">
               Richard <span className="text-[#a855f7]">Al-Ameen</span>
             </h1>
             <p className="text-zinc-400 text-sm uppercase tracking-widest font-black">
@@ -60,4 +60,66 @@ export default function BioPage() {
                 that roadmap to ensure my clients reach their peak without wasting a second of their valuable time.
               </p>
               <p className="text-white font-light leading-loose tracking-wide text-lg">
-                Welcome to the most solid foundatio
+                Welcome to the most solid foundation for your body transformation.
+              </p>
+            </div>
+
+            {/* Key Stats Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-12 border-t border-white/10">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Award className="w-6 h-6 text-[#a855f7]" />
+                  <h3 className="text-2xl uppercase italic text-white">The Experience</h3>
+                </div>
+                <p className="text-zinc-300 font-light leading-relaxed">
+                  7 years overall experience
+                  <br />3 years at the world's leading transformation gym (UP).
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Users className="w-6 h-6 text-[#a855f7]" />
+                  <h3 className="text-2xl uppercase italic text-white">The Client</h3>
+                </div>
+                <p className="text-zinc-300 font-light leading-relaxed">
+                  Hard-working executives who need high-efficiency results.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Target className="w-6 h-6 text-[#a855f7]" />
+                  <h3 className="text-2xl uppercase italic text-white">The Mission</h3>
+                </div>
+                <p className="text-zinc-300 font-light leading-relaxed">
+                  Using every success and loss I've experienced to bypass the BS and get you to your goal.
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <TrendingUp className="w-6 h-6 text-[#a855f7]" />
+                  <h3 className="text-2xl uppercase italic text-white">The Result</h3>
+                </div>
+                <p className="text-zinc-300 font-light leading-relaxed">
+                  A foundation for your health that is as solid as your business.
+                </p>
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="pt-12 text-center border-t border-white/10">
+              <Link
+                href="/onboarding"
+                className="inline-flex items-center gap-4 px-12 py-6 rounded-[2rem] text-sm group bg-[#a855f7] hover:bg-[#9333ea] text-white font-black uppercase tracking-widest transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/50"
+              >
+                <span>Start Your Transformation</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
