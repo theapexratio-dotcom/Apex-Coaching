@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// (Keep your other imports there too)
+import React, { useState } from 'react';
 
 const App = () => {
   // SETTINGS
