@@ -1,61 +1,74 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Award, Users, Target, TrendingUp, Quote } from 'lucide-react';
 
 // --- 1. FULL BIO STORY VIEW ---
-const FullBioPage = ({ onBack }) => {
-  return (
-    <div className="min-h-screen bg-black relative selection:bg-[#a855f7] selection:text-white">
-      {/* Background Image */}
-      <div className="fixed inset-0 z-0">
-        <div className="w-full h-full bg-center bg-cover opacity-20 bg-fixed"
-             style={{ backgroundImage: "url('https://i.postimg.cc/LhLhwTkd/coach-rich-bio.png')" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/85 to-black/95"></div>
-      </div>
-      
-      <div className="relative z-10 px-6 pt-20 pb-32 max-w-5xl mx-auto">
-        <button onClick={onBack} className="inline-flex items-center gap-3 text-white/70 hover:text-[#a855f7] mb-12 uppercase font-black text-xs tracking-widest">
-          <ArrowLeft size={20} /> Back to About
-        </button>
-        
-        <h1 className="text-6xl md:text-8xl italic uppercase text-white mb-8 leading-none">
-          The <span className="text-[#a855f7] not-italic">Foundation</span>
-        </h1>
-        
-        <div className="bg-black/40 backdrop-blur-md rounded-[3rem] p-12 border border-white/10 text-white space-y-8 shadow-2xl">
-          <p className="text-xl font-light leading-relaxed">
-            I specialize in working with <span className="text-[#a855f7] font-bold">high-earning executives</span> who demand excellence in their physical health.
-          </p>
-          <p className="text-zinc-400">
-            After three years at Ultimate Performance, I've mastered the art of the world-class body transformation.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 pt-8 border-t border-white/10">
-            <div className="flex items-center gap-4">
-              <Award className="text-[#a855f7]" />
-              <p className="uppercase text-xs font-black tracking-widest">7 Years Coaching</p>
-            </div>
-            <div className="flex items-center gap-4">
-              <Users className="text-[#a855f7]" />
-              <p className="uppercase text-xs font-black tracking-widest">Executive Specialist</p>
-            </div>
-          </div>
+const FullBioPage = ({ onBack }) => (
+  <div className="min-h-screen bg-black text-white p-10 font-sans">
+    <button onClick={onBack} className="text-[#a855f7] uppercase font-bold mb-10 tracking-widest text-xs">← Back to About</button>
+    <h1 className="text-6xl md:text-8xl italic uppercase mb-8 leading-none font-black">
+      The <span className="text-[#a855f7]">Foundation</span>
+    </h1>
+    <div className="bg-zinc-900 p-8 md:p-12 rounded-[2rem] border border-white/10 max-w-4xl">
+      <p className="text-xl mb-6">I specialize in high-performance results for executives.</p>
+      <p className="text-zinc-400 leading-loose">Built on 7 years of experience and 3 years at Ultimate Performance.</p>
+    </div>
+  </div>
+);
+
+// --- 2. ABOUT COACH VIEW ---
+const AboutCoachPage = ({ onBack, onSeeBio }) => (
+  <div className="min-h-screen bg-[#0a0a0a] text-white p-10 font-sans text-center">
+    <button onClick={onBack} className="text-[#a855f7] uppercase font-bold mb-12 tracking-widest text-xs">← Back to Hub</button>
+    <h1 className="text-5xl md:text-7xl italic uppercase mb-20 font-black">Your <span className="text-[#a855f7]">Coach</span></h1>
+    <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center text-left">
+      <div onClick={onSeeBio} className="cursor-pointer group relative">
+        <div className="rounded-[2rem] overflow-hidden border border-white/10 aspect-[4/5] bg-zinc-800 shadow-2xl">
+          <img src="https://i.postimg.cc/N5xFfjPR/coach-rich-main.png" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500" alt="Coach" />
         </div>
+        <p className="mt-4 text-[#a855f7] text-center uppercase font-black text-[10px] tracking-widest">Click to Read Full Story</p>
+      </div>
+      <div className="space-y-6">
+        <h2 className="text-4xl font-black uppercase italic tracking-tighter">The Mission</h2>
+        <p className="text-zinc-400 text-lg leading-relaxed">Precision-engineered results for the executive schedule. No fluff. Just the foundation.</p>
       </div>
     </div>
-  );
-};
+  </div>
+);
 
-// --- 2. ABOUT COACH VIEW (The Gallery Page) ---
-const AboutCoachPage = ({ onBack, onSeeBio }) => {
+// --- 3. THE MAIN HUB ---
+export default function App() {
+  const [view, setView] = useState('hub');
+
+  if (view === 'about') return <AboutCoachPage onBack={() => setView('hub')} onSeeBio={() => setView('bio')} />;
+  if (view === 'bio') return <FullBioPage onBack={() => setView('about')} />;
+
   return (
-    <div className="min-h-screen bg-[#0a0a0a] pt-20 pb-32 text-white">
-      <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
-        <button onClick={onBack} className="text-[#a855f7] uppercase font-black text-xs tracking-[0.3em] mb-12 hover:text-white transition">
-          ← Back to Hub
-        </button>
-        <span className="text-[#a855f7] font-black text-[11px] uppercase tracking-[0.5em] block mb-4">Executive Architect</span>
-        <h1 className="text-5xl md:text-7xl lg:text-9xl italic uppercase tracking-tighter leading-none">
-          Get To Know <span className="text-[#a855f7] not-italic">Your Coach</span>
-        </h1>
-      </div>
+    <div className="min-h-screen bg-white text-black font-sans">
+      <nav className="flex justify-between p-8 max-w-7xl mx-auto border-b border-slate-100">
+        <div className="font-black text-2xl tracking-tighter uppercase">Coach Rich</div>
+        <div className="space-x-8 text-[10px] font-black uppercase tracking-widest pt-2">
+          <button onClick={() => setView('about')} className="hover:text-[#a855f7]">About Coach</button>
+          <a href="#contact" className="hover:text-[#a855f7]">Contact</a>
+        </div>
+      </nav>
 
-      <section className="px-6 py-32 bg-[#0e0e
+      <main className="max-w-7xl mx-auto px-6 py-24 text-center">
+        <h1 className="text-7xl md:text-9xl font-black italic uppercase leading-[0.85] mb-12 tracking-tighter">
+          The Apex <br/><span className="text-[#a855f7]">Standard.</span>
+        </h1>
+        <button onClick={() => setView('about')} className="bg-black text-white px-12 py-6 rounded-full font-black uppercase tracking-widest hover:bg-[#a855f7] transition-all shadow-xl">
+          Enter Hub
+        </button>
+      </main>
+
+      <section id="contact" className="bg-black text-white py-24 px-6 rounded-t-[4rem]">
+        <div className="max-w-md mx-auto text-center">
+          <h2 className="text-4xl font-black italic uppercase mb-10 tracking-tight">Apply Now</h2>
+          <form action="https://formspree.io/f/mldevvwa" method="POST" className="space-y-4">
+            <input name="email" type="email" placeholder="Work Email" className="w-full p-5 rounded-2xl bg-zinc-900 border border-white/10 text-white outline-none focus:border-[#a855f7]" required />
+            <button type="submit" className="w-full bg-[#a855f7] py-5 rounded-2xl font-black uppercase tracking-widest hover:bg-white hover:text-black transition-all">Submit Application</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  );
+}
